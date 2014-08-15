@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="reforms">
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> reforms </title>
+  <!-- Load Angular from CDN -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+
+    <script src="js/core.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/login.js"></script>
+    <script src="js/controllers/form.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/record.js"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/normalize.css">
+
+  <!-- Semantic-UI -->
+  <link rel="stylesheet" href="plugins/semantic-ui/css/semantic.min.css">
+  <script src="plugins/semantic-ui/javascript/semantic.min.js"></script>
+
+  <!-- Custom styling -->
+  <link rel="stylesheet" href="stylesheets/site.css">
+  <link rel="stylesheet" href="stylesheets/splash.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div id="container" ng-view></div>
+
+</body>
+</html>
