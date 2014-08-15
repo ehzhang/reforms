@@ -10,13 +10,12 @@ Local Development:
 ```sh
 mkdir db
 npm install
-npm run-script mongo
+npm run mongo
 npm start
 ```
 
 Config:
 
 ```sh
-cp config.template/database.js config/database.js
-cp config.template/auth.js config/auth.js
+cp -r config.template config
 ```
