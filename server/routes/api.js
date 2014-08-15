@@ -15,6 +15,15 @@ module.exports = function(router) {
     res.json({message: 'yay logged in'})
   });
 
+  // POST - Create a new user (admin only)
+  router.post('/records', isLoggedIn, function(req, res){
+    var record = new Record(req.body);
+    record.save();
+    // Send back the record when saved
+    // TODO: Add error handling on save
+    res.json(record)
+  });
+
   // GET a specific record
   router.get('/records/:id', function(req, res){
     // Return the JSON!
@@ -27,11 +36,6 @@ module.exports = function(router) {
   router.put('/records/:id', function(req, res){
     var id = req.params.username;
     res.json({msg: "Updated :)", id: id})
-  });
-
-  // POST - Create a new user (admin only)
-  router.post('/records/:id', isLoggedIn, function(req, res){
-    res.json({message: 'yay logged in'})
   });
 
   // Middleware to handle authenticated requests
