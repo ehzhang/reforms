@@ -1,9 +1,7 @@
-SUBMIT
+Re-forms
 ==========
 
-Simple submission form with unique URLs and admit panels
-
-Basic starting point for a gated authentication flow, using Mongodb, Express, Angular, and Node.
+Simple resubmittable forms with unique URLs and admin panels
 
 Local Development:
 
