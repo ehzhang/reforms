@@ -26,10 +26,15 @@ module.exports = function(router) {
 
   // GET a specific record
   router.get('/records/:id', function(req, res){
-    // Return the JSON!
-    var username = req.params.id;
-    var foo = {hacker: username};
-    res.json(foo)
+    Record.findById(req.params.id, function(err, doc){
+      if (err) {
+        return res.json(err)
+      }
+      if (!doc) {
+        return res.json({message: 'Record does not exist.'})
+      }
+      return res.json(doc);
+    });
   });
 
   // PUT - Update a specific Record JSON

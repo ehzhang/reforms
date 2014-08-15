@@ -1,4 +1,6 @@
-var reforms = angular.module('reforms', ['ngRoute']);
+var reforms = angular.module('reforms', [
+  'ngRoute',
+  'recordService']);
 
 // Client side routes
 reforms.config(function($routeProvider, $locationProvider){
