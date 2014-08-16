@@ -6,5 +6,17 @@ admin
       Record.getAll()
           .success(function(data){
             $scope.records = data;
-          })
+          });
+    })
+    .controller('createController', function($scope, Record){
+      $scope.newRecord = {};
+
+      $scope.create = function(){
+        Record.create($scope.newRecord)
+            .success(function(data){
+              location.reload();
+            })
+      }
     });
+
+

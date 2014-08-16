@@ -7,6 +7,9 @@ angular.module('recordService', [])
       getAll: function(){
         return $http.get('/api/records')
       },
+      create: function(data){
+        return $http.post('/api/records', data);
+      },
       update: function(data){
         return $http.put('/api/records/' + data._id, data);
       }

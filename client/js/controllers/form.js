@@ -8,6 +8,10 @@ angular.module('reforms')
         });
 
     $scope.submit = function(){
-      Record.update($scope.data)
+      Record
+          .update($scope.data)
+          .success(function(data){
+            location.reload();
+          });
     }
   });

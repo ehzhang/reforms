@@ -1,4 +1,7 @@
-html, body, #container {
+html,
+body,
+#container,
+#login {
   height: 100%;
 }
 
@@ -25,7 +28,7 @@ body {
   text-align: center;
 }
 
-.title {
+#login .title {
   font-family: 'Montserrat', 'Helvetica', sans-serif;
   font-weight: 700;
   font-size: 4em;

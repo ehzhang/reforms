@@ -1,11 +1,61 @@
-<!--Form goes here-->
-<h1> {{ message }}</h1>
+<section id="form">
+  <div class="ui stackable grid">
 
-{{ data }}
+    <div class="four wide column">
+    </div>
+    <div class="eight wide column">
+      <div class="ui form basic segment">
+        <div class="field">
+          <h1> {{ data.title }}</h1>
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <div class="ui labeled input">
+            <input type="text"
+                   placeholder="Description"
+                   ng-model="data.description">
+          </div>
+        </div>
+        <div class="field">
+          <label>Name</label>
+          <div class="ui labeled input">
+            <input type="text"
+                   placeholder="Name"
+                   ng-model="data.name">
+          </div>
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <div class="ui labeled input">
+            <input type="email"
+                   placeholder="Username"
+                   ng-model="data.email">
+          </div>
+        </div>
+        <div class="field">
+          <label>Age</label>
+          <div class="ui labeled input">
+            <input type="number"
+                   placeholder="Username"
+                   ng-model="data.age">
+          </div>
+        </div>
+        <div class="field">
+          <label>Height</label>
+          <div class="ui labeled input">
+            <input type="number"
+                   placeholder="Username"
+                   ng-model="data.height">
+          </div>
+        </div>
+        <div class="ui error message">
+          <div class="header">We noticed some issues</div>
+        </div>
+        <div class="ui purple fluid submit button"
+             ng-click="submit()">Save</div>
+      </div>
+    </div>
+    <div class="four wide column"></div>
 
-<form>
-  <input type="text" ng-model="data.title">
-  <br>
-  <input type="text" ng-model="data.description">
-</form>
-<button ng-click="submit()"> SUBMIT </button>
+  </div>
+</section>

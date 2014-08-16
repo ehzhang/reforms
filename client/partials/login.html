@@ -1,43 +1,44 @@
-<div class="flex-container">
-  <div class="flex-item">
-    <div class="title">
-      re-forms
-    </div>
-    <form ng-submit="submit()">
-      <input type="text"
-             class="clean"
-             placeholder="Super Secret Access Code"
-             ng-model="code">
-    </form>
-
-  </div>
-
-</div>
-
-<a class='admin' ng-click="showLogin()">
-  Admin
-</a>
-
-<div class="ui page dimmer">
-  <div class="content">
-    <div class="center">
-      <form action="/auth/login" method="post">
-        <div>
-          <input type="text"
-                 class="clean dark"
-                 autocomplete="off"
-                 placeholder="Username"
-                 name="username">
-        </div>
-        <div>
-          <input type="password"
-                 class="clean dark"
-                 placeholder="Password"
-                 name="password">
-        </div>
-          <input type="submit" style="visibility: hidden">
+<div id="login">
+  <div class="flex-container">
+    <div class="flex-item">
+      <div class="title">
+        re-forms
+      </div>
+      <form ng-submit="submit()">
+        <input type="text"
+               class="clean"
+               placeholder="Super Secret Access Code"
+               ng-model="code">
       </form>
+
+    </div>
+
+  </div>
+
+  <a class='admin' ng-click="showLogin()">
+    Admin
+  </a>
+
+  <div class="ui page dimmer">
+    <div class="content">
+      <div class="center">
+        <form action="/auth/login" method="post">
+          <div>
+            <input type="text"
+                   class="clean dark"
+                   autocomplete="off"
+                   placeholder="Username"
+                   name="username">
+          </div>
+          <div>
+            <input type="password"
+                   class="clean dark"
+                   placeholder="Password"
+                   name="password">
+          </div>
+            <input type="submit" style="visibility: hidden">
+        </form>
+      </div>
     </div>
   </div>
 </div>
-

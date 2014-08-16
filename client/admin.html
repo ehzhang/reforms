@@ -15,10 +15,6 @@
 
   <script src="js/admin.js"></script>
 
-  <!-- Controllers -->
-  <!--<script src="js/controllers/login.js"></script>-->
-  <!--<script src="js/controllers/form.js"></script>-->
-
   <!-- Services -->
   <script src="js/services/record.js"></script>
 
@@ -33,51 +29,64 @@
 
 <body>
 
-<h1> ADMIN </h1>
-<h4> Add Record </h4>
- <form action="/api/records" method="post">
-  <div>
-    <label>Title:</label>
-    <input type="text" name="title"/>
-  </div>
-  <div>
-    <label>Description:</label>
-    <input type="text" name="description"/>
-  </div>
-  <div>
-    <label>Name:</label>
-    <input type="text" name="name"/>
-  </div>
-  <div>
-    <label>Email:</label>
-    <input type="text" name="email"/>
-  </div>
-  <div>
-    <label>Age:</label>
-    <input type="text" name="age"/>
-  </div>
-  <div>
-    <label>Height:</label>
-    <input type="text" name="height"/>
-  </div>
-  <div>
-    <input type="submit" value="Submit"/>
-  </div>
-  <br>
-  <div ng-controller="recordsController">
-    <div ng-repeat="record in records">
-      <div class="ui accordion">
-        <div class="title active"> {{record.name}} </div>
-        <div class="content active">
-          <div ng-repeat="(key, value) in record">
-            <div> {{key}} : {{ value }} </div>
+<div class="ui stackable grid">
+  <div class="four wide column"></div>
+  <div class="eight wide column">
+    <div class="ui form basic segment"
+         ng-controller="createController">
+      <div class="field">
+        <h1> ADMIN: Create new Record </h1>
+      </div>
+
+      <div class="field">
+        <label>Title:</label>
+        <input type="text" ng-model="newRecord.title"/>
+      </div>
+      <div class="field">
+        <label>Description:</label>
+        <input type="text" ng-model="newRecord.description"/>
+      </div>
+
+      <div class="field">
+        <label>Name:</label>
+        <input type="text" ng-model="newRecord.name"/>
+      </div>
+      <div class="field">
+        <label>Email:</label>
+        <input type="text" ng-model="newRecord.email"/>
+      </div>
+      <div class="field">
+        <label>Age:</label>
+        <input type="number" ng-model="newRecord.age"/>
+      </div>
+      <div class="field">
+        <label>Height:</label>
+        <input type="number" ng-model="newRecord.height"/>
+      </div>
+      <div class="ui purple fluid submit button"
+           ng-click="create()">
+      Create Record </div>
+    </div>
+
+    <div ng-controller="recordsController">
+      <div ng-repeat="record in records">
+        <div class="ui fluid purple top attached segment">
+          <h1> {{ record.title }}</h1>
+        </div>
+        <div class="ui fluid bottom attached segment">
+          <div class="content">
+            <div ng-repeat="(key, value) in record">
+              <div> <strong> {{key}} </strong>: {{ value }} </div>
+            </div>
           </div>
         </div>
+        <br>
       </div>
     </div>
   </div>
+  <div class="four wide column"></div>
+</div>
 
-</form>
 
 </body>
 </html>
