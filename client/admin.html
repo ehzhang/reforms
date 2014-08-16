@@ -7,6 +7,11 @@
   <!-- Load Angular from CDN -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <!-- Semantic-UI -->
+  <link rel="stylesheet" href="plugins/semantic-ui/css/semantic.min.css">
+  <script src="plugins/semantic-ui/javascript/semantic.min.js"></script>
 
   <script src="js/admin.js"></script>
 
@@ -17,41 +22,57 @@
   <!-- Services -->
   <script src="js/services/record.js"></script>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link rel="stylesheet" href="stylesheets/normalize.css">
 
-  <!-- Semantic-UI -->
-  <link rel="stylesheet" href="plugins/semantic-ui/css/semantic.min.css">
-  <script src="plugins/semantic-ui/javascript/semantic.min.js"></script>
 
   <!-- Custom styling -->
   <link rel="stylesheet" href="stylesheets/site.css">
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-
 </head>
 
 <body>
 
 <h1> ADMIN </h1>
-
+<h4> Add Record </h4>
  <form action="/api/records" method="post">
   <div>
-    <label>Username:</label>
+    <label>Title:</label>
     <input type="text" name="title"/>
   </div>
   <div>
-    <label>Password:</label>
+    <label>Description:</label>
     <input type="text" name="description"/>
   </div>
   <div>
-    <input type="submit" value="Log In"/>
+    <label>Name:</label>
+    <input type="text" name="name"/>
   </div>
-
+  <div>
+    <label>Email:</label>
+    <input type="text" name="email"/>
+  </div>
+  <div>
+    <label>Age:</label>
+    <input type="text" name="age"/>
+  </div>
+  <div>
+    <label>Height:</label>
+    <input type="text" name="height"/>
+  </div>
+  <div>
+    <input type="submit" value="Submit"/>
+  </div>
+  <br>
   <div ng-controller="recordsController">
     <div ng-repeat="record in records">
-      <div>
-        {{ record }}
+      <div class="ui accordion">
+        <div class="title active"> {{record.name}} </div>
+        <div class="content active">
+          <div ng-repeat="(key, value) in record">
+            <div> {{key}} : {{ value }} </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
