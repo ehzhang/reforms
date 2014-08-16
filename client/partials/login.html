@@ -1,5 +1,11 @@
 <h1>
   {{ message }}
+</h1>
+
+  <br>
+  <input type="text" ng-model="message">
+  <br>
+
   <form action="/auth/login" method="post">
     <div>
       <label>Username:</label>
@@ -13,4 +19,3 @@
       <input type="submit" value="Log In"/>
     </div>
   </form>
-</h1>

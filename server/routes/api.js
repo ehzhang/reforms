@@ -50,6 +50,7 @@ module.exports = function(router) {
 
   // PUT - Update a specific Record
   router.put('/records/:id', function(req, res){
+    console.log(req.body);
     var id = req.params.username;
     res.json({msg: "Updated :)", id: id})
   });

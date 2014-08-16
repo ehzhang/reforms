@@ -4,6 +4,10 @@ angular.module('reforms')
 
     Record.get($routeParams.id)
         .success(function(data){
-          $scope.data = JSON.stringify(data, null, 2);
-        })
+          $scope.data = data
+        });
+
+    $scope.submit = function(){
+      Record.update($scope.data)
+    }
   });
