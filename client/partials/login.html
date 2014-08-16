@@ -1,21 +1,43 @@
-<h1>
-  {{ message }}
-</h1>
+<div class="flex-container">
+  <div class="flex-item">
+    <div class="title">
+      re-forms
+    </div>
+    <form ng-submit="submit()">
+      <input type="text"
+             class="clean"
+             placeholder="Super Secret Access Code"
+             ng-model="code">
+    </form>
 
-  <br>
-  <input type="text" ng-model="message">
-  <br>
+  </div>
 
-  <form action="/auth/login" method="post">
-    <div>
-      <label>Username:</label>
-      <input type="text" name="username"/>
+</div>
+
+<a class='admin' ng-click="showLogin()">
+  Admin
+</a>
+
+<div class="ui page dimmer">
+  <div class="content">
+    <div class="center">
+      <form action="/auth/login" method="post">
+        <div>
+          <input type="text"
+                 class="clean dark"
+                 autocomplete="off"
+                 placeholder="Username"
+                 name="username">
+        </div>
+        <div>
+          <input type="password"
+                 class="clean dark"
+                 placeholder="Password"
+                 name="password">
+        </div>
+          <input type="submit" style="visibility: hidden">
+      </form>
     </div>
-    <div>
-      <label>Password:</label>
-      <input type="password" name="password"/>
-    </div>
-    <div>
-      <input type="submit" value="Log In"/>
-    </div>
-  </form>
+  </div>
+</div>
+

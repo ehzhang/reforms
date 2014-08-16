@@ -1,0 +1,56 @@
+html, body, #container {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 300;
+}
+
+.flex-container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-item {
+  text-align: center;
+}
+
+.title {
+  font-family: 'Montserrat', 'Helvetica', sans-serif;
+  font-weight: 700;
+  font-size: 4em;
+  margin-bottom: 24px;
+}
+
+input.clean {
+  background: none;
+  font-size: 3em;
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+input.clean.dark {
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+}
+
+a.admin {
+  position: fixed;
+  bottom: 16px; right: 16px;
+  cursor: pointer;
+}

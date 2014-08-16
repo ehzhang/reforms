@@ -2,7 +2,6 @@ var Record = require('../models/Record');
 
 module.exports = function(router) {
 
-
   // Middleware to handle authenticated requests
   function isLoggedIn(req, res, next){
     if (req.isAuthenticated()){
