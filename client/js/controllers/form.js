@@ -1,6 +1,6 @@
 angular.module('reforms')
   .controller('formController', function($scope, $routeParams, Record){
-    $scope.message = 'This is the form for ' + $routeParams.id
+    $scope.message = 'This is the form for ' + $routeParams.id;
 
     Record.get($routeParams.id)
         .success(function(data){
