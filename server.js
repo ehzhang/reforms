@@ -14,7 +14,7 @@ var passport        = require('passport');
 var util            = require('util');
 
 var authConfig      = require('./config/auth');
-
+var userConfig      = require('./config/user');
 var app             = express();
 
 // Connect to mongodb
