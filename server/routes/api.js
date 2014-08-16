@@ -50,9 +50,16 @@ module.exports = function(router) {
 
   // PUT - Update a specific Record
   router.put('/records/:id', function(req, res){
-    console.log(req.body);
-    var id = req.params.username;
-    res.json({msg: "Updated :)", id: id})
+    var updatedData = req.body;
+    if (req.params.id == updatedData._id){
+      Record.findByIdAndUpdate(updatedData._id,
+          {$set: updatedData}, function(err, doc){
+            res.json(doc);
+          });
+    } else {
+      res.json({message: 'Update unsuccessful :('})
+    }
+
   });
 
 };

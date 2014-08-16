@@ -8,7 +8,7 @@ angular.module('recordService', [])
         return $http.get('/api/records')
       },
       update: function(data){
-        return $http.put('/api/records/' + data.id, data);
+        return $http.put('/api/records/' + data._id, data);
       }
     }
-    });
+  });
