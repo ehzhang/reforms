@@ -2,6 +2,15 @@ var Record = require('../models/Record');
 
 module.exports = function(router) {
 
+
+  // Middleware to handle authenticated requests
+  function isLoggedIn(req, res, next){
+    if (req.isAuthenticated()){
+      return next()
+    }
+    res.json({message: 'Not authorized!'})
+  }
+
   /**
    *  API!
    */
@@ -12,7 +21,9 @@ module.exports = function(router) {
 
   // GET all records (admin only)
   router.get('/records', isLoggedIn, function(req, res){
-    res.json({message: 'yay logged in'})
+    Record.find({}, function(err, users){
+      res.json(users);
+    })
   });
 
   // POST - Create a new user (admin only)
@@ -37,18 +48,10 @@ module.exports = function(router) {
     });
   });
 
-  // PUT - Update a specific Record JSON
+  // PUT - Update a specific Record
   router.put('/records/:id', function(req, res){
     var id = req.params.username;
     res.json({msg: "Updated :)", id: id})
   });
-
-  // Middleware to handle authenticated requests
-  function isLoggedIn(req, res, next){
-    if (req.isAuthenticated()){
-      return next()
-    }
-    res.json({message: 'Not authorized!'})
-  }
 
 };
