@@ -31,7 +31,7 @@ module.exports = function(router) {
     record.save();
     // Send back the record when saved
     // TODO: Add error handling on save
-    res.json(record)
+    res.json({message: 'Successfuly created!', doc: record})
   });
 
   // GET a specific record
@@ -53,12 +53,36 @@ module.exports = function(router) {
     if (req.params.id == updatedData._id){
       Record.findByIdAndUpdate(updatedData._id,
           {$set: updatedData}, function(err, doc){
-            res.json(doc);
+            if (err) {
+              return res.send(400,
+                  {
+                    messsage: 'This is bad!',
+                    error: err
+                  })
+            }
+            if (!doc) {
+              return res.send(400,
+                  {
+                    message: 'Record not found.'
+                  }
+              )
+            }
+            res.json({
+              message: 'Successfully updated!',
+              doc: doc
+            });
           });
     } else {
       res.json({message: 'Update unsuccessful :('})
     }
 
   });
+
+  router.delete('/records/:id', isLoggedIn, function(req, res){
+    var id = req.params.id;
+    Record.findByIdAndRemove(id, function(){
+      res.json({message: "Record successfully removed."})
+    });
+  })
 
 };

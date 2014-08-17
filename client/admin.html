@@ -31,65 +31,90 @@
 
 <body>
 
-<div class="ui stackable grid">
-  <div class="four wide column"></div>
-  <div class="eight wide column">
-    <div class="ui form basic segment"
-         ng-controller="createController">
-      <div class="field">
-        <h1> ADMIN: Create new Record </h1>
-      </div>
+<div id="banner">
+  <div class="content">
+    ADMIN
+  </div>
+</div>
 
-      <div class="field">
-        <label>Title:</label>
-        <input type="text" ng-model="newRecord.title"/>
-      </div>
-      <div class="field">
-        <label>Description:</label>
-        <input type="text" ng-model="newRecord.description"/>
-      </div>
+<div id="admin" ng-controller="recordsController">
 
-      <div class="field">
-        <label>Name:</label>
-        <input type="text" ng-model="newRecord.name"/>
-      </div>
-      <div class="field">
-        <label>Email:</label>
-        <input type="text" ng-model="newRecord.email"/>
-      </div>
-      <div class="field">
-        <label>Age:</label>
-        <input type="number" ng-model="newRecord.age"/>
-      </div>
-      <div class="field">
-        <label>Height:</label>
-        <input type="number" ng-model="newRecord.height"/>
-      </div>
-      <div class="ui purple fluid submit button"
-           ng-click="create()">
-      Create Record </div>
-    </div>
 
-    <div ng-controller="recordsController">
-      <div ng-repeat="record in records">
-        <div class="ui fluid purple top attached link segment"
-             ng-click="goTo(record._id)">
-          <h1> {{ record.title }}</h1>
+  <div class="ui stackable grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+      <div class="ui form basic segment">
+        <div class="field">
+          <h1> Create new Record </h1>
         </div>
-        <div class="ui fluid bottom attached segment">
-          <div class="content">
-            <div ng-repeat="(key, value) in record">
-              <div> <strong> {{key}} </strong>: {{ value }} </div>
+
+        <div class="field">
+          <label>Title:</label>
+          <input type="text" ng-model="newRecord.title"/>
+        </div>
+        <div class="field">
+          <label>Description:</label>
+          <input type="text" ng-model="newRecord.description"/>
+        </div>
+
+        <div class="field">
+          <label>Name:</label>
+          <input type="text" ng-model="newRecord.name"/>
+        </div>
+        <div class="field">
+          <label>Email:</label>
+          <input type="text" ng-model="newRecord.email"/>
+        </div>
+        <div class="field">
+          <label>Age:</label>
+          <input type="number" ng-model="newRecord.age"/>
+        </div>
+        <div class="field">
+          <label>Height:</label>
+          <input type="number" ng-model="newRecord.height"/>
+        </div>
+        <div class="ui purple fluid submit button"
+             ng-click="create()">
+        Create Record </div>
+      </div>
+
+      <div>
+        <div class='record' ng-repeat="record in records">
+          <div class="ui fluid purple top attached link segment"
+               ng-click="goTo(record._id)">
+            <h1> {{ record.title }}</h1>
+          </div>
+          <div class="ui fluid bottom attached segment">
+            <div class="content">
+              <div ng-repeat="(key, value) in record">
+                <div> <strong> {{key}} </strong>: {{ value }} </div>
+              </div>
+              <br>
+              <div class="ui tiny red button"
+                   ng-click="remove($index)">
+                Delete
+              </div>
             </div>
           </div>
+          <br>
         </div>
-        <br>
+      </div>
+    </div>
+    <div class="four wide column"></div>
+
+  </div>
+
+  <div class="ui page dimmer">
+    <div class="content">
+      <div class="center">
+        <h1> {{ success.title }} </h1>
+
+        <h1>{{ success.url }}</h1>
       </div>
     </div>
   </div>
-  <div class="four wide column"></div>
-</div>
 
+</div>
 
 </body>
 </html>

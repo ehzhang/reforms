@@ -1,6 +1,8 @@
 angular.module('reforms')
   .controller('formController', function($scope, $routeParams, Record){
-    $scope.message = 'This is the form for ' + $routeParams.id;
+
+    var $form = $('.ui.form'),
+        $dimmer = $('.ui.dimmer');
 
     Record.get($routeParams.id)
         .success(function(data){
@@ -8,10 +10,21 @@ angular.module('reforms')
         });
 
     $scope.submit = function(){
+
+      $form.addClass('loading');
+
       Record
           .update($scope.data)
           .success(function(data){
-            location.reload();
+            $form.removeClass('loading');
+            $dimmer.dimmer('show');
+            setTimeout(function(){
+              $scope.data = data;
+              $dimmer.dimmer('hide');
+            }, 3000);
+          })
+          .error(function(){
+            $form.removeClass('loading');
           });
     }
   });

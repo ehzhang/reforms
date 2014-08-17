@@ -15,6 +15,11 @@ module.exports = function(app) {
     }
   });
 
+  app.get('partials/:name', function(req, res) {
+    var name = request.params.name;
+    res.sendfile('./client/partials/' + name);
+  });
+
   // Wildcard all other GET requests to the angular app
   app.get('*', function(req, res){
     res.sendfile('./client/index.html');

@@ -12,6 +12,9 @@ angular.module('recordService', [])
       },
       update: function(data){
         return $http.put('/api/records/' + data._id, data);
+      },
+      remove: function(id){
+        return $http.delete('/api/records/' + id)
       }
     }
   });
