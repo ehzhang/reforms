@@ -7,18 +7,6 @@ module.exports = function(app) {
     res.sendfile('./client/index.html');
   });
 
-  // Debugging!
-  // TODO: REMOVE THIS!!!!!!
-  app.get('/create', function(req, res){
-    var user = new User();
-
-    user.username = 'hello';
-    user.password = user.generateHash('hunter2');
-
-    user.save();
-    res.json(user);
-  });
-
   app.get('/admin', function(req, res){
     if (!req.isAuthenticated()){
       res.redirect('/')
