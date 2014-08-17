@@ -7,6 +7,11 @@ admin
           .success(function(data){
             $scope.records = data;
           });
+
+      $scope.goTo = function(id){
+        location.href = '/' + id;
+      }
+
     })
     .controller('createController', function($scope, Record){
       $scope.newRecord = {};

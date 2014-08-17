@@ -57,3 +57,7 @@ a.admin {
   bottom: 16px; right: 16px;
   cursor: pointer;
 }
+
+.link.segment {
+  cursor: pointer;
+}
