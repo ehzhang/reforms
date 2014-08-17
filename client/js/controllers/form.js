@@ -4,9 +4,14 @@ angular.module('reforms')
     var $form = $('.ui.form'),
         $dimmer = $('.ui.dimmer');
 
+    $scope.data = false;
+
     Record.get($routeParams.id)
         .success(function(data){
           $scope.data = data
+        })
+        .error(function(){
+          location.href = '/404'
         });
 
     $scope.submit = function(){

@@ -38,10 +38,10 @@ module.exports = function(router) {
   router.get('/records/:id', function(req, res){
     Record.findById(req.params.id, function(err, doc){
       if (err) {
-        return res.json(err)
+        return res.send(404, err)
       }
       if (!doc) {
-        return res.json({message: 'Record does not exist.'})
+        return res.send(404, {message: 'Record does not exist.'})
       }
       return res.json(doc);
     });

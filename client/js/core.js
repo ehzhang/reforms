@@ -10,6 +10,10 @@ reforms.config(function($routeProvider, $locationProvider){
         controller: 'loginController'
       })
 
+      .when('/404', {
+        templateUrl: 'partials/404.html'
+      })
+
       .when('/:id', {
         templateUrl: 'partials/form.html',
         controller: 'formController'
