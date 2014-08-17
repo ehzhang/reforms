@@ -1,5 +1,6 @@
 var admin = angular.module('admin', [
-  'recordService']);
+  'recordService',
+  'ngAnimate']);
 
 admin
     .controller('recordsController', function($scope, Record){

@@ -3,6 +3,8 @@ body,
 #container,
 #login {
   height: 100%;
+  width: 100%;
+  font-size: 1.05em;
 }
 
 body {
@@ -60,4 +62,21 @@ a.admin {
 
 .link.segment {
   cursor: pointer;
+}
+
+#banner {
+  background: #3E3773;
+  margin-bottom: 36px;
+}
+
+#banner .content{
+  text-transform: uppercase;
+  font-size: 3em;
+    color: white;
+  text-align: center;
+  padding: 1em 0;
+}
+
+.ui.form h1 {
+  font-size: 3em;
 }
